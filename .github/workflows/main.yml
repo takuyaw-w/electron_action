@@ -27,7 +27,6 @@ jobs:
         run: |
           yarn install
       - name: Publish
-        run: echo "$MATRIX_CONTEXT"
         run: |
           yarn run electron:build
       - name: Cleanup artifacts
