@@ -31,7 +31,7 @@ jobs:
           yarn run electron:build
       - name: Cleanup artifacts
         run: |
-          npx rimraf "dis_electron/!(*.exe|*.deb|*.AppImage|*.dmg)"
+          npx rimraf "dist_electron/!(*.exe|*.deb|*.AppImage|*.dmg)"
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
