@@ -5,6 +5,8 @@ on: push
 jobs:
   one:
     runs-on: ${{ matrix.os }}
+    strategy:
+      os: [macOS-10.14, windows-2016, ubuntu-18.04]
     steps:
 
       - name: Dump GitHub context
