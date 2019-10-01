@@ -5,13 +5,21 @@ import {
   createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
+import sqlite3 from 'sqlite3'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 let win
 
+const db = new sqlite3.Database("test.sqlite3")
+
 protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true, standard: true } }])
 
 function createWindow () {
+
+  db.serialize(() => {
+    db.run("create table users (name text, email text, age int)")
+  })
+
   win = new BrowserWindow({ width: 800, height: 600, webPreferences: {
     nodeIntegration: true
   } })
