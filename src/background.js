@@ -10,7 +10,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 let win
 
-const db = new sqlite3.Database("./db/test.sqlite3")
+const db = new sqlite3.Database("test.sqlite3")
 
 protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true, standard: true } }])
 
